@@ -1,0 +1,68 @@
+name: qorsheye_app
+description: "Qorsheye — Smart Task Manager with remote backend & auth."
+publish_to: 'none'
+version: 2.0.0+2
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # HTTP client for remote API
+  http: ^1.2.2
+
+  # State management
+  provider: ^6.1.5+1
+
+  # Local storage (auth token, settings)
+  shared_preferences: ^2.5.5
+
+  # Charts
+  fl_chart: ^1.2.0
+
+  # Date/time formatting
+  intl: ^0.20.2
+
+  # Unique IDs (local temp IDs before API assigns real ones)
+  uuid: ^4.5.3
+
+  # Notifications
+  flutter_local_notifications: ^20.1.0
+  timezone: ^0.10.1
+
+  # Home widget
+  home_widget: ^0.9.1
+
+  # Audio
+  audioplayers: ^6.6.0
+  web: ^1.1.1
+
+  # Icons
+  cupertino_icons: ^1.0.8
+  google_sign_in: ^7.2.0
+  google_fonts: ^8.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: "^0.13.1"
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/app_icon.png"
+  web:
+    generate: true
+    image_path: "assets/images/app_icon.png"
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/app_icon.png
+    - assets/sounds/
+
+
