@@ -7,7 +7,10 @@ import 'package:flutter/material.dart';
 
 /// Change this to your server IP when testing on a physical device.
 /// Use 10.0.2.2 for Android emulator (maps to host localhost).
+// Remote:
 const String kApiBaseUrl = 'https://darkcyan-wallaby-957345.hostingersite.com/qorsheye_api/api';
+// Local (XAMPP):
+// const String kApiBaseUrl = 'http://10.0.2.2/qorsheeye/qorsheye_api/api';
 
 class AppColors {
   // Primary palette

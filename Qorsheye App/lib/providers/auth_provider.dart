@@ -4,7 +4,6 @@
 // ============================================================
 
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import '../services/api_service.dart';
 import '../services/auth_storage.dart';
 
@@ -97,46 +96,6 @@ class AuthProvider with ChangeNotifier {
       return await _handleAuthResponse(res);
     } on ApiException catch (e) {
       _error = e.message;
-      notifyListeners();
-      return false;
-    } finally {
-      _setLoading(false);
-    }
-  }
-
-  // ----------------------------------------------------------------
-  // Google Login
-  // ----------------------------------------------------------------
-  Future<bool> googleLogin() async {
-    _setLoading(true);
-    try {
-      await GoogleSignIn.instance.initialize(
-        serverClientId: '944056758435-iu3s8deivqj52gme62c1estg0bj23u5l.apps.googleusercontent.com',
-      );
-      
-      final account = await GoogleSignIn.instance.authenticate(
-        scopeHint: ['email', 'profile'],
-      );
-
-      final auth = account.authentication;
-      final idToken = auth.idToken;
-
-      if (idToken == null) {
-        _error = 'Failed to get ID token from Google.';
-        notifyListeners();
-        return false;
-      }
-
-      final res = await ApiService.post('auth.php?action=google_login', {
-        'idToken': idToken,
-      });
-      return await _handleAuthResponse(res);
-    } on ApiException catch (e) {
-      _error = e.message;
-      notifyListeners();
-      return false;
-    } catch (e) {
-      _error = 'Google Sign-In failed: $e';
       notifyListeners();
       return false;
     } finally {

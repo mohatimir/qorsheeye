@@ -9,6 +9,7 @@ import 'home_tab.dart';
 import 'tasks_tab.dart';
 import 'categories_tab.dart';
 import 'stats_tab.dart';
+import 'more_tab.dart';
 import 'add_task_screen.dart';
 import 'login_screen.dart';
 
@@ -28,6 +29,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     const SizedBox.shrink(), // dummy for FAB notch
     const CategoriesTab(),
     const StatsTab(),
+    const MoreTab(),
   ];
 
   Future<void> _logout() async {
@@ -118,6 +120,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 icon: Icon(Icons.circle, color: Colors.transparent, size: 0), label: ''),
               BottomNavigationBarItem(icon: const Icon(Icons.folder_rounded),      label: Tr.get('categories', lang)),
               BottomNavigationBarItem(icon: const Icon(Icons.bar_chart_rounded),   label: Tr.get('stats', lang)),
+              BottomNavigationBarItem(icon: const Icon(Icons.more_horiz_rounded),  label: Tr.get('more', lang)),
             ],
           ),
         ),

@@ -189,40 +189,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                               ),
                               const SizedBox(height: 16),
 
-                              // Google Login
-                              SizedBox(
-                                width: double.infinity,
-                                height: 52,
-                                child: OutlinedButton.icon(
-                                  onPressed: auth.loading ? null : () async {
-                                    context.read<AuthProvider>().clearError();
-                                    final ok = await context.read<AuthProvider>().googleLogin();
-                                    if (ok && context.mounted) {
-                                      Navigator.pushAndRemoveUntil(
-                                        context,
-                                        MaterialPageRoute(builder: (_) => const DashboardScreen()),
-                                        (_) => false,
-                                      );
-                                    }
-                                  },
-                                  style: OutlinedButton.styleFrom(
-                                    side: BorderSide(color: isDark ? Colors.white24 : Colors.black12),
-                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-                                  ),
-                                  icon: Image.network(
-                                    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/120px-Google_%22G%22_logo.svg.png',
-                                    height: 24,
-                                  ),
-                                  label: FittedBox(
-                                    fit: BoxFit.scaleDown,
-                                    child: Text('Continue with Google',
-                                        style: TextStyle(
-                                            fontSize: 16, 
-                                            fontWeight: FontWeight.w600, 
-                                            color: isDark ? Colors.white : Colors.black87)),
-                                  ),
-                                ),
-                              ),
+
                             ],
                           ),
                         ),
